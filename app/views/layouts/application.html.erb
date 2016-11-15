@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Ticketmaster</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +11,16 @@
   </head>
 
   <body>
+    <% if current_user %>
+      Vous êtes connecté en temps que <%= current_user.email %>
+      <%= link_to "Déconnexion", logout_path %>
+    <% else %>
+      <%= link_to "S'inscrire", signup_path %>
+      <%= link_to "Se connecter", login_path%>
+    <% end %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

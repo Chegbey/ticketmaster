@@ -16,6 +16,8 @@
 #
 default: &default
   adapter: postgresql
+  username: postgres
+  password: postgres
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -80,6 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: ticketmaster_production
-  username: ticketmaster
-  password: <%= ENV['TICKETMASTER_DATABASE_PASSWORD'] %>
+  host: localhost
+  database: ticketmaster
+  username: postgres
+  password: postgres

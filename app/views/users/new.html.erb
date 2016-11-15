@@ -1,0 +1,23 @@
+<h1>Inscription<h1>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+  <h2>Le formulaire n'est pas valide</h2>
+  <% for message in @user.errors.full_messages %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+<div class="field">
+   <%= f.label :email %><br />
+   <%= f.password_field :email %>
+</div>
+<div class="field">
+   <%= f.label :password %><br />
+   <%= f.password_field :password %>
+</div>
+<div class="field">
+   <%= f.label :password_confirmation %><br />
+   <%= f.password_field :password_confirmation %>
+</div>
+<div class="actions"> <%= f.submit %></div>
+<% end %>
