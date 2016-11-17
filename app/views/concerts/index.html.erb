@@ -1,0 +1,5 @@
+<ul>
+  <% @concerts.each do |concert| %>
+    <li><%= link_to "#{concert.title}", concert %></li>
+  <% end %>
+</ul>

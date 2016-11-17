@@ -14,7 +14,7 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @concert = Bank.new(concert_params)
+    @concert = Concert.new(concert_params)
     if @concert.save #true ou false
       redirect_to root_url
     else
@@ -25,7 +25,7 @@ class ConcertsController < ApplicationController
   private
 
   def concert_params
-    params.require(:concert).permit(:title)
+    params.require(:concert).permit(:title, :number_places, :description, :address, :number_places, :date )
   end
 
 end

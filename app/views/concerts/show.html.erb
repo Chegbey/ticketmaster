@@ -1,0 +1,11 @@
+
+
+<p>Les concerts : </p>
+<% @concerts.each do |concert| %>
+<h1><%= concert.title %></h1>
+
+  <p><%=  concert.description %></p>
+  <p><%=  concert.address %></p>
+  <p><%=  concert.number_places %></p>
+  <p><%=  concert.date %></p>
+<% end %>
