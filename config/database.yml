@@ -15,6 +15,7 @@
 # gem 'pg'
 #
 default: &default
+  host: localhost
   adapter: postgresql
   username: postgres
   password: postgres
