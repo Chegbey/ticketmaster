@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "index" => "concerts#index", :as => "index"
   get "new" => "concerts#new", :as => "new"
-  get "show" => "concerts#show", :as => "show" 
+  get "show" => "concerts#show", :as => "show"
   resources :users
   resources :sessions
   resources :concerts
-  root :to => "ticketmaster#accueil"
+  root :to => "concerts#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
