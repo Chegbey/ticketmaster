@@ -28,13 +28,9 @@ class ConcertsController < ApplicationController
     params.require(:concert).permit(:title, :number_places, :description, :address, :number_places, :date )
   end
 
-  def search
-      debugger
-        @q = "%#{params[:query]}%"
-        @concerts ="Concerts.where("name LIKE ?" ,@q)
-        @concerts = concert.all
-        render ='index'
+  def index 
+    @concerts = Concert.search(params[:search])
+  end
 
-  end  
 
 end
