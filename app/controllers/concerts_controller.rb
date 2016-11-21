@@ -14,21 +14,21 @@ class ConcertsController < ApplicationController
     @id = params[:id]
     @nb_tickets = params[:nb_tickets].to_i
     @user = current_user
+    @concert = Concert.find(@id)
 
     if (Concert.find(@id).tickets_left >= @nb_tickets.to_i)
       @tickets = []
       for i in 0..@nb_tickets-1
           @ticket = Ticket.new
-          @ticket.concert_id = params[:id]
+          @ticket.concert_id = @concert.id
           if @ticket.save
-            puts '----------'
-            puts @ticket
-            puts '----------'
-            puts @user.id
-            puts '----------'
             @user.tickets << @ticket
+
           end
       end
+
+      @concert.tickets_left -= @nb_tickets
+      @concert.save
 
       if @user.save
         redirect_to root_url, :notice => "Vous avez bien commandé #{@nb_tickets} tickets"
