@@ -15,6 +15,9 @@
       Vous êtes connecté en temps que <%= current_user.email %>
       <%= current_user.tickets.count %>
       <%= link_to "Déconnexion", logout_path %>
+      <%# if current_user == admin %>
+        <%= link_to "Créer un concert", "/concerts/new"%>
+      <%# end %>
     <% else %>
       <%= link_to "S'inscrire", signup_path %>
       <%= link_to "Se connecter", login_path%>

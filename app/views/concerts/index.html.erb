@@ -1,5 +1,9 @@
 <ul>
   <% @concerts.each do |concert| %>
-    <li><%= link_to "#{concert.title}", concert %></li>
+    <li><%= link_to "#{concert.title}", concert %>
+      <%# if current_user == admin %>
+        <%= link_to "Supprimer", concert, :confirm => "êtes vous sûr ?", :method => :delete %>
+      <%# end %>
+    </li>
   <% end %>
 </ul>

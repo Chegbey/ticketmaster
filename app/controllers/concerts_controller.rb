@@ -52,6 +52,12 @@ class ConcertsController < ApplicationController
     end
   end
 
+  def destroy
+    @concert = Concert.find(params[:id])
+    @concert.destroy
+    redirect_to :back, :notice => "le Concert a été détruit"
+  end
+  
   private
 
   def concert_params
