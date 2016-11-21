@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails ticketmaster: development" uuid="37175b0a-b19c-44d3-ad92-296191328442">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/ticketmaster</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails ticketmaster: production" uuid="c2c439c4-7943-4116-8076-3d6e3e4c2237">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/ticketmaster</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails ticketmaster: test" uuid="03c5be2b-0d30-41d6-a3d8-9a9a37b10948">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/ticketmaster_test</jdbc-url>
+    </data-source>
+  </component>
+</project>
