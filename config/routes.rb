@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
 
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-  get "index" => "concerts#index", :as => "index"
-  get "new" => "concerts#new", :as => "new"
-  get "show" => "concerts#show", :as => "show"
   resources :users
   resources :sessions
   resources :concerts
+
   root :to => "concerts#index"
+
+  get "/signup", to: "users#new"
+  get "/login", to: "sessions#new"
+  get "/logout", to: "sessions#destroy"
+  get "/concerts/new", to: "concerts#new"
+  get "/concerts/:id", to: "concerts#show"
+
+
+  post "/concerts/:id", to: "concerts#order", as: "concert_id"
+
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

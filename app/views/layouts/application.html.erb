@@ -13,6 +13,7 @@
   <body>
     <% if current_user %>
       Vous êtes connecté en temps que <%= current_user.email %>
+      <%= current_user.tickets.count %>
       <%= link_to "Déconnexion", logout_path %>
     <% else %>
       <%= link_to "S'inscrire", signup_path %>
@@ -21,7 +22,13 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
+
+    <!-- <%= form_tag concerts_path, :methode =>'get' do %>
+   		<%= text_field_tag :search, params[:search] %>
+   		<%= submit_tag "Search" %>
+   	<% end %> -->
+
     <%= yield %>
-    
+
   </body>
 </html>

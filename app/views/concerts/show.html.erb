@@ -8,3 +8,13 @@
   <p><%=  @concert.address %></p>
   <p><%=  @concert.number_places %></p>
   <p><%=  @concert.date %></p>
+  <% if current_user %>
+    <p>log</p>
+    <%= form_tag() do %>
+      <%= number_field_tag(:nb_tickets) %>
+      <%= submit_tag("Commander") %>
+    <% end %>
+ <% else %>
+ <p>nolog</p>
+ <% end %>
+<%= render 'disqus' %>
