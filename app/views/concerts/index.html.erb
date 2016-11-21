@@ -2,4 +2,9 @@
   <% @concerts.each do |concert| %>
     <li><%= link_to "#{concert.title}", concert %></li>
   <% end %>
+
+	<%= form_tag search_concerts_path do %> 
+	<imput class="search full-width" id="searchbar" name"query" placeholder="search concerts" type="text" autocomplete="off">
+	<% end %> 
+ 
 </ul>

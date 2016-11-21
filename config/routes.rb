@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   resources :concerts
   root :to => "concerts#index"
 
+   #CONCERTS
+
+ post 'concerts/search' => 'concerts#search' , as:'search_concerts'
+ get 'all_concerts/:id' => 'concerts#index', as: 'all_concerts'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
