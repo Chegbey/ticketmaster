@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @tickets = current_user.tickets
+    @user = User.find(params[:id])
   end
 
   private

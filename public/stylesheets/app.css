@@ -154,13 +154,25 @@ a:hover {
 }
 
 .header .header-search-result [data-close] {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    display: block;
     background-color: transparent;
     border: none;
-    height: 25px;
-    width: 25px;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    width: 100%;
+    outline: none;
+}
+
+.header .header-search-result a {
+    margin: 0 !important;
+    padding: 0 25px !important;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333 !important;
+    border-bottom: 1px solid #e8e8e8;
 }
 
 /* **************************************************
@@ -235,6 +247,38 @@ a:hover {
     font-weight: 700;
     font-size: 20px;
     color: #1abc9c;
+}
+
+/* **************************************************
+
+  TICKETS-LIST
+
+************************************************** */
+
+.section-tickets-list {
+    padding: 25px 0;
+}
+
+.section-tickets-list h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #111;
+}
+
+.section-tickets-list h2 span {
+    font-size: 30px;
+    color: #2ecc71;
+}
+
+.section-tickets-list a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 25px;
+    font-size: 20px;
+    color: #2ecc71;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 /* **************************************************

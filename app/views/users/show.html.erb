@@ -1,0 +1,10 @@
+<div class="section section-margin section-tickets-list section-gray">
+  <div class="container">
+    <h2>Tickets de <span><%= @user.email %></span></h2>
+    <% @tickets.each do |ticket_id| %>
+      <% @ticket = Ticket.find(ticket_id) %>
+      <% @concert = Concert.find(@ticket.concert_id) %>
+      <%= link_to "#{@concert.title}", @concert %>
+    <% end %>
+  </div>
+</div>

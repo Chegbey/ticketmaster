@@ -45,8 +45,12 @@
         if (search != '') {
             var data = $searchForm.serialize();
 
-            $.get(url, data, function(result) {
-                //
+            $.get(url, data, function(results) {
+                $searchResults.children().not('[data-close]').remove();
+                results.forEach(function (result) {
+                    console.log(result)
+                    $searchResults.append('<a href="/concerts/'+result.id+'">'+result.title+'</a>')
+                });
             });
         }
     });
