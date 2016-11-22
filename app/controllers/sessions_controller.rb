@@ -5,15 +5,14 @@ class SessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(root_url, success: 'Succès')
+      redirect_back_or_to(root_url, success: "Vous êtes bien connecté.")
     else
-      flash.now[:alert] = 'Inscription échouée'
-      render action: 'new'
+      redirect_back_or_to(login_url, error: "Une erreur est survenue.")
     end
   end
 
   def destroy
     logout
-    redirect_to root_url, :success => "Vous avez été déconnecté."
+    redirect_back_or_to(root_url, success: "Vous êtes bien déconnecté.")
   end
 end

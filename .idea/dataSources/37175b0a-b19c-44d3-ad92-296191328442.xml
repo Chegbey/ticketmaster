@@ -37,8 +37,8 @@
     <schema id="11" parent="3" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>651</introspection-state-number>
-      <introspection-timestamp>2016-11-22.06:39:47.079</introspection-timestamp>
+      <introspection-state-number>694</introspection-state-number>
+      <introspection-timestamp>2016-11-22.09:36:26.546</introspection-timestamp>
     </schema>
     <schema id="12" parent="3" name="pg_catalog">
       <object-id>11</object-id>
@@ -73,7 +73,7 @@
     </table>
     <table id="21" parent="11" name="concerts">
       <object-id>16428</object-id>
-      <state-number>616</state-number>
+      <state-number>694</state-number>
     </table>
     <table id="22" parent="11" name="schema_migrations">
       <object-id>16387</object-id>
@@ -161,145 +161,149 @@
       <data-type>varchar|0</data-type>
       <default-expression>&apos;http://placehold.it/800x600&apos;::character varying</default-expression>
     </column>
-    <index id="41" parent="21" name="concerts_pkey">
+    <column id="41" parent="21" name="music_type">
+      <state-number>694</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <index id="42" parent="21" name="concerts_pkey">
       <object-id>16435</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="42" parent="21" name="concerts_pkey">
+    <key id="43" parent="21" name="concerts_pkey">
       <object-id>16436</object-id>
       <columns>id</columns>
       <underlying-index>concerts_pkey</underlying-index>
       <primary>1</primary>
     </key>
-    <column id="43" parent="22" name="version">
+    <column id="44" parent="22" name="version">
       <state-number>551</state-number>
       <mandatory>1</mandatory>
       <data-type>varchar|0</data-type>
     </column>
-    <index id="44" parent="22" name="schema_migrations_pkey">
+    <index id="45" parent="22" name="schema_migrations_pkey">
       <object-id>16393</object-id>
       <columns>version</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="45" parent="22" name="schema_migrations_pkey">
+    <key id="46" parent="22" name="schema_migrations_pkey">
       <object-id>16394</object-id>
       <columns>version</columns>
       <underlying-index>schema_migrations_pkey</underlying-index>
       <primary>1</primary>
     </key>
-    <column id="46" parent="23" name="id">
+    <column id="47" parent="23" name="id">
       <state-number>557</state-number>
       <mandatory>1</mandatory>
       <data-type>integer|0</data-type>
       <default-expression>nextval(&apos;tickets_id_seq&apos;::regclass)</default-expression>
     </column>
-    <column id="47" parent="23" name="concert_id">
+    <column id="48" parent="23" name="concert_id">
       <state-number>557</state-number>
       <data-type>integer|0</data-type>
     </column>
-    <column id="48" parent="23" name="ticket_id">
+    <column id="49" parent="23" name="ticket_id">
       <state-number>557</state-number>
       <data-type>integer|0</data-type>
     </column>
-    <column id="49" parent="23" name="created_at">
+    <column id="50" parent="23" name="created_at">
       <state-number>557</state-number>
       <data-type>timestamp|0</data-type>
     </column>
-    <column id="50" parent="23" name="updated_at">
+    <column id="51" parent="23" name="updated_at">
       <state-number>557</state-number>
       <data-type>timestamp|0</data-type>
     </column>
-    <column id="51" parent="23" name="user_id">
+    <column id="52" parent="23" name="user_id">
       <state-number>565</state-number>
       <data-type>integer|0</data-type>
     </column>
-    <index id="52" parent="23" name="tickets_pkey">
+    <index id="53" parent="23" name="tickets_pkey">
       <object-id>16423</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="53" parent="23" name="index_tickets_on_concert_id">
+    <index id="54" parent="23" name="index_tickets_on_concert_id">
       <object-id>16425</object-id>
       <columns>concert_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="54" parent="23" name="tickets_pkey">
+    <key id="55" parent="23" name="tickets_pkey">
       <object-id>16424</object-id>
       <columns>id</columns>
       <underlying-index>tickets_pkey</underlying-index>
       <primary>1</primary>
     </key>
-    <column id="55" parent="24" name="id">
+    <column id="56" parent="24" name="id">
       <state-number>553</state-number>
       <mandatory>1</mandatory>
       <data-type>integer|0</data-type>
       <default-expression>nextval(&apos;users_id_seq&apos;::regclass)</default-expression>
     </column>
-    <column id="56" parent="24" name="email">
+    <column id="57" parent="24" name="email">
       <state-number>553</state-number>
       <mandatory>1</mandatory>
       <data-type>varchar|0</data-type>
     </column>
-    <column id="57" parent="24" name="crypted_password">
+    <column id="58" parent="24" name="crypted_password">
       <state-number>553</state-number>
       <data-type>varchar|0</data-type>
     </column>
-    <column id="58" parent="24" name="salt">
+    <column id="59" parent="24" name="salt">
       <state-number>553</state-number>
       <data-type>varchar|0</data-type>
     </column>
-    <column id="59" parent="24" name="created_at">
+    <column id="60" parent="24" name="created_at">
       <state-number>553</state-number>
       <data-type>timestamp|0</data-type>
     </column>
-    <column id="60" parent="24" name="updated_at">
+    <column id="61" parent="24" name="updated_at">
       <state-number>553</state-number>
       <data-type>timestamp|0</data-type>
     </column>
-    <column id="61" parent="24" name="remember_me_token">
+    <column id="62" parent="24" name="remember_me_token">
       <state-number>554</state-number>
       <data-type>varchar|0</data-type>
     </column>
-    <column id="62" parent="24" name="remember_me_token_expires_at">
+    <column id="63" parent="24" name="remember_me_token_expires_at">
       <state-number>554</state-number>
       <data-type>timestamp|0</data-type>
     </column>
-    <column id="63" parent="24" name="tickets">
+    <column id="64" parent="24" name="tickets">
       <state-number>563</state-number>
       <data-type>integer[]|0</data-type>
       <default-expression>&apos;{}&apos;::integer[]</default-expression>
     </column>
-    <column id="64" parent="24" name="admin">
+    <column id="65" parent="24" name="admin">
       <state-number>579</state-number>
       <data-type>boolean|0</data-type>
       <default-expression>false</default-expression>
     </column>
-    <column id="65" parent="24" name="fav">
+    <column id="66" parent="24" name="fav">
       <state-number>651</state-number>
       <data-type>varchar|0</data-type>
     </column>
-    <index id="66" parent="24" name="users_pkey">
+    <index id="67" parent="24" name="users_pkey">
       <object-id>16412</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="67" parent="24" name="index_users_on_email">
+    <index id="68" parent="24" name="index_users_on_email">
       <object-id>16414</object-id>
       <columns>email</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="68" parent="24" name="index_users_on_remember_me_token">
+    <index id="69" parent="24" name="index_users_on_remember_me_token">
       <object-id>16415</object-id>
       <columns>remember_me_token</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="69" parent="24" name="users_pkey">
+    <key id="70" parent="24" name="users_pkey">
       <object-id>16413</object-id>
       <columns>id</columns>
       <underlying-index>users_pkey</underlying-index>

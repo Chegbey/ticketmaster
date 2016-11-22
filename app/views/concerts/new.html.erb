@@ -24,9 +24,13 @@
                 <%= f.label :date, 'Date' %>
                 <%= f.date_field :date %>
               </div>
-              <div class="concerts-add-form-group col-xs-12">
+              <div class="concerts-add-form-group col-xs-12 col-sm-6">
                 <%= f.label :cover, 'Image de couverture (lien)' %>
                 <%= f.text_field :cover %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12 col-sm-6">
+                <%= f.label :music_type, 'Choisissez le genre' %>
+                <%= select_tag(:music_type, options_for_select([['Rap', 'rap'], ['Rock', 'rock'], ['Electro', 'electro']])) %>
               </div>
               <div class="concerts-add-form-group concerts-add-form-submit col-xs-12 col-sm-6 col-sm-offset-6">
                 <%= f.submit "Ajouter" %>

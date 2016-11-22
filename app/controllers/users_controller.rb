@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user.fav = params[:fav]
 
     if @user.save
-      redirect_to(root_url, success: "L'inscription a été effectuée avec succès !")
+      redirect_back_or_to(root_url, success: "L'inscription s'est déroulée avec succès !")
     else
       render :new
     end

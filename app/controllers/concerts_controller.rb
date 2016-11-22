@@ -2,12 +2,13 @@ class ConcertsController < ApplicationController
 
   def index
     @concerts = Concert.all
-    #@concerts = Concert.search(params[:search])
+    if current_user
+      @concerts_fav = Concert.where(music_type: current_user.fav).limit(3).order(:date)
+    end
    end
 
   def show
     @concert = Concert.find(params[:id])
-    @tickets = @concert.tickets
   end
 
   def order
@@ -31,10 +32,10 @@ class ConcertsController < ApplicationController
       @concert.save
 
       if @user.save
-        redirect_to root_url, :success => "Vous avez bien commandé #{@nb_tickets} tickets"
+        redirect_back_or_to(root_url, success: "Vous avez bien commandé #{@nb_tickets} tickets.")
       end
     else
-      redirect_to :back, :error => "Il ne reste pas assez de ticket"
+      redirect_back_or_to(:back, error: "Il ne reste pas assez de ticket.")
     end
   end
 
@@ -45,6 +46,8 @@ class ConcertsController < ApplicationController
   def create
     @concert = Concert.new(concert_params)
     @concert.tickets_left = params[:concert][:number_places]
+    @concert.music_type = params[:music_type]
+
     if @concert.save #true ou false
       redirect_to root_url
     else
@@ -55,13 +58,13 @@ class ConcertsController < ApplicationController
   def destroy
     @concert = Concert.find(params[:id])
     @concert.destroy
-    redirect_to :back, :notice => "le Concert a été détruit"
+    redirect_back_or_to(home_url, success: "Le concert a bien été supprimé.")
   end
   
   private
 
   def concert_params
-    params.require(:concert).permit(:title, :description, :address, :number_places, :date, :cover)
+    params.require(:concert).permit(:title, :description, :address, :number_places, :date, :cover, :music_type)
   end
 
 end
