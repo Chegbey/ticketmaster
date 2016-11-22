@@ -1,16 +1,39 @@
-<p><%= link_to "home", root_url %></p>
-<%= form_for @concert do |f| %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :number_places %>
-  <%= f.text_field :number_places %>
-  <%= f.label :date %>
-  <%= f.text_field :date %>
-  <%= f.submit "Créer Un concert" %>
-
-<% end %>
+<div class="section section-concerts-add">
+  <div class="container">
+    <div class="row">
+      <div class="concerts-add-form col-xs-12 col-sm-8">
+        <%= form_for @concert do |f| %>
+            <div class="row">
+              <div class="concerts-add-form-group col-xs-12">
+                <%= f.label :title, 'Titre du concert' %>
+                <%= f.text_field :title %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12">
+                <%= f.label :description, 'Description' %>
+                <%= f.text_field :description %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12">
+                <%= f.label :address, 'Adresse' %>
+                <%= f.text_field :address %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12 col-sm-6">
+                <%= f.label :number_places, 'Nombre de places' %>
+                <%= f.number_field :number_places %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12 col-sm-6">
+                <%= f.label :date, 'Date' %>
+                <%= f.date_field :date %>
+              </div>
+              <div class="concerts-add-form-group col-xs-12">
+                <%= f.label :cover, 'Image de couverture (lien)' %>
+                <%= f.text_field :cover %>
+              </div>
+              <div class="concerts-add-form-group concerts-add-form-submit col-xs-12 col-sm-6 col-sm-offset-6">
+                <%= f.submit "Ajouter" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

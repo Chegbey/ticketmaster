@@ -1,13 +1,24 @@
-<%= form_tag sessions_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email %>
+<div class="section section-users-form">
+  <div class="container">
+    <h2>Connexion</h2>
+    <div class="row">
+      <div class="users-form col-xs-12 col-sm-8">
+        <%= form_tag sessions_path, :method => :post do %>
+            <div class="row">
+              <div class="users-form-group col-xs-12">
+                <%= label_tag :email, 'Adresse email' %>
+                <%= email_field_tag :email %>
+              </div>
+              <div class="users-form-group col-xs-12">
+                <%= label_tag :password, 'Mot de passe' %>
+                <%= password_field_tag :password %>
+              </div>
+              <div class="users-form-group users-form-submit col-xs-12 col-sm-6 col-sm-offset-6">
+                <%= submit_tag "Se connecter" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
-<% end %>
+</div>

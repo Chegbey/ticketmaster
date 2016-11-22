@@ -1,9 +1,20 @@
-<ul>
-  <% @concerts.each do |concert| %>
-    <li><%= link_to "#{concert.title}", concert %>
-      <%# if current_user == admin %>
-        <%= link_to "Supprimer", concert, :confirm => "êtes vous sûr ?", :method => :delete %>
-      <%# end %>
-    </li>
-  <% end %>
-</ul>
+<div class="section section-concerts-list">
+  <div class="container">
+    <div class="row">
+      <% @concerts.each do |concert| %>
+          <div class="concert-card col-xs-12 col-sm-4 xol-md-3">
+            <% if current_user && current_user.admin %>
+                <div class="concert-card-delete">
+                  <%= link_to "X", concert, :confirm => "Confirm?", :method => :delete %>
+                </div>
+            <% end %>
+            <div class="concert-card-image" style="background: url(<%= concert.cover %>); background-size: cover; background-position: center;"></div>
+            <div class="concert-card-infos">
+              <h2 class="concert-card-title"><%= link_to "#{concert.title}", concert %></h2>
+              <p class="concert-card-descr"><%= concert.description %></p>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

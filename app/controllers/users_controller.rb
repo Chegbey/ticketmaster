@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    @user.fav = params[:fav]
+
     if @user.save
-      redirect_to root_url, :notice => "Succès de l\'inscription"
+      redirect_to(root_url, success: "L'inscription a été effectuée avec succès !")
     else
       render :new
     end

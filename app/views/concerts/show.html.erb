@@ -1,20 +1,51 @@
-
-
-
-<p><%= link_to "home", root_url %></p>
-<h1><%= @concert.title %></h1>
-
-  <p><%=  @concert.description %></p>
-  <p><%=  @concert.address %></p>
-  <p><%=  @concert.tickets_left %></p>
-  <p><%=  @concert.date %></p>
-  <% if current_user %>
-    <p>log</p>
-    <%= form_tag() do %>
-      <%= number_field_tag(:nb_tickets) %>
-      <%= submit_tag("Commander") %>
-    <% end %>
- <% else %>
- <p>nolog</p>
- <% end %>
-<%= render 'disqus' %>
+<div class="section section-concerts-detail">
+  <div class="concerts-detail-cover" style="background: url(<%= @concert.cover %>); background-size: cover; background-position: center;"></div>
+  <div class="container">
+    <div class="row">
+      <div class="concerts-detail-infos col-xs-12 col-sm-8">
+        <h2 class="concerts-detail-title"><%= @concert.title %></h2>
+        <p class="concerts-detail-descr"><%=  @concert.description %></p>
+        <p class="concerts-detail-date"><%=  @concert.date %></p>
+        <p class="concerts-detail-place"><%=  @concert.address %></p>
+      </div>
+      <div class="concerts-detail-aside col-xs-12 col-sm-4">
+        <% if current_user %>
+          <div class="concerts-detail-order">
+            <p>Il reste <span><%= @concert.tickets_left %></span> tickets</p>
+            <%= form_tag do %>
+                <%= label_tag :nb_tickets, 'Nombre de tickets' %>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <%= number_field_tag(:nb_tickets, 1, min: 1) %>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <%= submit_tag("Commander") %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        <% else %>
+            <div class="concerts-detail-connect">
+              <p>Il reste <span><%= @concert.tickets_left %></span> tickets.<br/>Connecte-toi pour en profiter!</p>
+              <div class="row">
+                <div class="concerts-connect-item concerts-connect-signup col-xs-12 col-sm-6">
+                  <%= link_to "S'inscrire", signup_path %>
+                </div>
+                <div class="concerts-connect-item concerts-connect-login col-xs-12 col-sm-6">
+                  <%= link_to "Se connecter", login_path %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <div class="concerts-detail-map col-xs-12">
+        <% if @concert.address %>
+          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBm6etUtAifKbRgVI1lbLo9pVpQbJxrcfM&q=<%= @concert.address %>" allowfullscreen></iframe>
+        <% end %>
+      </div>
+    </div>
+    <div class="concerts-detail-disqus">
+      <%= render 'disqus' %>
+    </div>
+  </div>
+</div>

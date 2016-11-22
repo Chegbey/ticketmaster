@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Rails ticketmaster: production">
+<dataSource name="Rails ticketmaster: test">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
-    <database id="1" name="ticketmaster">
-      <object-id>16384</object-id>
+    <database id="1" name="ticketmaster_test">
+      <object-id>16386</object-id>
       <visible>1</visible>
     </database>
     <database id="2" name="postgres">
       <object-id>12406</object-id>
     </database>
-    <database id="3" name="ticketmaster_development">
-      <object-id>16385</object-id>
+    <database id="3" name="ticketmaster">
+      <object-id>16384</object-id>
     </database>
-    <database id="4" name="ticketmaster_test">
-      <object-id>16386</object-id>
+    <database id="4" name="ticketmaster_development">
+      <object-id>16385</object-id>
     </database>
     <schema id="5" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-timestamp>2016-11-22.05:05:16.687</introspection-timestamp>
+      <introspection-timestamp>2016-11-22.05:05:16.752</introspection-timestamp>
     </schema>
     <schema id="6" parent="1" name="pg_catalog">
       <object-id>11</object-id>

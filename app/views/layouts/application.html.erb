@@ -8,23 +8,40 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <%= stylesheet_link_tag    "bootstrap.min" %>
+    <%= stylesheet_link_tag    "app" %>
   </head>
 
   <body>
-    <% if current_user %>
-      Vous êtes connecté en temps que <%= current_user.email %>
-      <%= current_user.tickets.count %>
-      <%= link_to "Déconnexion", logout_path %>
-      <%# if current_user == admin %>
-        <%= link_to "Créer un concert", "/concerts/new"%>
-      <%# end %>
-    <% else %>
-      <%= link_to "S'inscrire", signup_path %>
-      <%= link_to "Se connecter", login_path%>
-    <% end %>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
+    <header class="header">
+      <div class="container">
+        <h1 class="header-title"><%= link_to "TicketMaster", "/" %></h1>
+        <ul class="header-nav">
+          <% if current_user %>
+              <li class="header-nav-item header-hi"><%= link_to "Salut #{current_user.email}", "/users/#{current_user.id}" %></li>
+              <% if current_user.admin %>
+                  <li class="header-nav-item header-add"><%= link_to "Ajouter un concert", "/concerts/new"%></li>
+              <% end %>
+              <li class="header-nav-item header-disconnect"><%= link_to "Se déconnecter", logout_path %></li>
+          <% else %>
+              <li class="header-nav-item header-signup"><%= link_to "S'inscrire", signup_path %></li>
+              <li class="header-nav-item header-login"><%= link_to "Se connecter", login_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <div class="app-flashes">
+      <% flash.each do |name, msg| %>
+          <div class="app-flash app-flash-<%= name %>">
+            <p><%= msg %></p>
+            <button class="app-flash-close">X</button>
+          </div>
+      <% end %>
+    </div>
+
+
 
     <!-- <%= form_tag concerts_path, :methode =>'get' do %>
    		<%= text_field_tag :search, params[:search] %>
@@ -33,5 +50,9 @@
 
     <%= yield %>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <%= javascript_include_tag "moment" %>
+    <%= javascript_include_tag "moment.lang.fr" %>
+    <%= javascript_include_tag "app" %>
   </body>
 </html>

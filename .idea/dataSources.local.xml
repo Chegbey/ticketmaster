@@ -8,7 +8,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>postgres</user-name>
       <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
-      <resolve-scope>ticketmaster:public,postgres</resolve-scope>
+      <resolve-scope>ticketmaster:postgres,public</resolve-scope>
     </data-source>
     <data-source name="Rails ticketmaster: production" uuid="c2c439c4-7943-4116-8076-3d6e3e4c2237">
       <database-info product="PostgreSQL" version="9.6.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
@@ -19,7 +19,10 @@
       <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
     </data-source>
     <data-source name="Rails ticketmaster: test" uuid="03c5be2b-0d30-41d6-a3d8-9a9a37b10948">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="PostgreSQL" version="9.6.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>postgres</user-name>
       <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
     </data-source>

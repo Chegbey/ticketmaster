@@ -1,23 +1,33 @@
-<h1>Inscription<h1>
+<div class="section section-users-form">
+  <div class="container">
+    <h2>Inscription</h2>
+    <div class="row">
+      <div class="users-form col-xs-12 col-sm-8">
+        <%= form_for @user do |f| %>
+            <div class="row">
+              <div class="users-form-group col-xs-12">
+                <%= f.label :email, 'Adresse email' %>
+                <%= f.email_field :email %>
+              </div>
+              <div class="users-form-group col-xs-12 col-sm-6">
+                <%= f.label :password, 'Mot de passe' %>
+                <%= f.password_field :password %>
+              </div>
+              <div class="users-form-group col-xs-12 col-sm-6">
+                <%= f.label :password_confirmation, 'Confirmer le mot de passe' %>
+                <%= f.password_field :password_confirmation %>
+              </div>
+              <div class="users-form-group col-xs-12 col-sm-6">
+                <%= f.label :fav, 'Choisissez votre genre préféré' %>
+                <%= select_tag(:fav, options_for_select([['Rap', 'rap'], ['Rock', 'rock'], ['Electro', 'electro']])) %>
+              </div>
 
-<%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-  <h2>Le formulaire n'est pas valide</h2>
-  <% for message in @user.errors.full_messages %>
-    <p><%= message %></p>
-  <% end %>
-<% end %>
-<div class="field">
-   <%= f.label :email %><br />
-   <%= f.password_field :email %>
+              <div class="users-form-group users-form-submit col-xs-12 col-sm-6">
+                <%= f.submit "S'inscrire" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="field">
-   <%= f.label :password %><br />
-   <%= f.password_field :password %>
-</div>
-<div class="field">
-   <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation %>
-</div>
-<div class="actions"> <%= f.submit %></div>
-<% end %>

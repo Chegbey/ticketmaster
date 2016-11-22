@@ -7,7 +7,7 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
-    @tikects = @concert.tickets
+    @tickets = @concert.tickets
   end
 
   def order
@@ -31,10 +31,10 @@ class ConcertsController < ApplicationController
       @concert.save
 
       if @user.save
-        redirect_to root_url, :notice => "Vous avez bien commandé #{@nb_tickets} tickets"
+        redirect_to root_url, :success => "Vous avez bien commandé #{@nb_tickets} tickets"
       end
     else
-      redirect_to :back, :notice => "Il ne reste pas assez de ticket"
+      redirect_to :back, :error => "Il ne reste pas assez de ticket"
     end
   end
 
@@ -61,7 +61,7 @@ class ConcertsController < ApplicationController
   private
 
   def concert_params
-    params.require(:concert).permit(:title, :description, :address, :number_places, :date )
+    params.require(:concert).permit(:title, :description, :address, :number_places, :date, :cover)
   end
 
 end

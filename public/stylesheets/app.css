@@ -1,0 +1,532 @@
+/* **************************************************
+
+  BASICS
+
+************************************************** */
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+body {
+    /*padding-top: 100px;*/
+    min-height: calc(100vh - 100px);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* **************************************************
+
+  HEADER
+
+************************************************** */
+
+.header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.header .header-title {
+    display: inline-block;
+    float: left;
+    vertical-align: top;
+    margin: 0;
+}
+
+.header .header-title a {
+    display: block;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 15px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #111;
+    transition: all 0.25s ease-in-out;
+}
+.header .header-title:hover a {
+    color: #333;
+}
+
+.header .header-nav {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+}
+
+.header .header-nav .header-nav-item {
+    display: inline-block;
+    font-size: 0;
+}
+
+.header .header-nav .header-nav-item a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px 0;
+    padding: 0 10px;
+    font-size: 16px;
+    color: #eee;
+    transition: all 0.25s ease-in-out;
+}
+.header .header-nav .header-nav-item:hover a {
+    color: #fff;
+}
+
+.header .header-nav .header-nav-item.header-hi a, .header .header-nav .header-nav-item.header-login a {
+    background-color: #27ae60;
+}
+.header .header-nav .header-nav-item.header-hi:hover a, .header .header-nav .header-nav-item.header-login:hover a {
+    background-color: #2ecc71;
+}
+.header .header-nav .header-nav-item.header-add a, .header .header-nav .header-nav-item.header-signup a {
+    background-color: #2980b9;
+}
+.header .header-nav .header-nav-item.header-add:hover a, .header .header-nav .header-nav-item.header-signup:hover a {
+    background-color: #3498db;
+}
+.header .header-nav .header-nav-item.header-disconnect a {
+    background-color: #c0392b;
+}
+.header .header-nav .header-nav-item.header-disconnect:hover a {
+    background-color: #e74c3c;
+}
+
+/* **************************************************
+
+  FLASHES
+
+************************************************** */
+
+.app-flashes {
+    z-index: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    max-width: 100%;
+}
+
+.app-flashes .app-flash {
+    position: relative;
+    display: block;
+    opacity: 0.95;
+    padding: 10px 50px 10px 15px;
+    margin-bottom: 10px;
+}
+
+.app-flashes .app-flash.app-flash-success {
+    background-color: #2fcc70;
+}
+
+.app-flashes .app-flash.app-flash-error {
+    background-color: #e74c3c;
+}
+
+.app-flashes .app-flash p {
+    line-height: 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #111;
+}
+
+.app-flashes .app-flash button {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transform: translateY(-50%);
+}
+
+/* **************************************************
+
+  CONCERT-CARD
+
+************************************************** */
+
+.section-concerts-list {
+    margin-top: 100px;
+}
+
+.concert-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.concert-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.concert-card:hover:before{
+    opacity: 1;
+}
+
+.concert-card .concert-card-image {
+    display: block;
+    height: 250px;
+    width: 100%;
+    transition: all 0.25s ease-in-out;
+}
+.concert-card:hover .concert-card-image {
+    /*transform: scale(1.4);*/
+}
+
+.concert-card .concert-card-infos {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 15px 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.concert-card .concert-card-infos .concert-card-title {
+    margin: 0;
+}
+
+.concert-card .concert-card-infos .concert-card-title a {
+    padding: 10px 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #222;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+}
+
+.concert-card:hover .concert-card-infos .concert-card-title a {
+    color: #16a085;
+}
+
+.concert-card .concert-card-infos .concert-card-descr {
+    color: #333;
+    line-height: 20px;
+}
+
+.concert-card .concert-card-delete {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    background-color: #c0392b;
+    transition: all 0.25s ease-in-out;
+}
+.concert-card .concert-card-delete:hover {
+    background-color: #e74c3c;
+}
+
+.concert-card .concert-card-delete a {
+    font-size: 15px;
+    color: #fff;
+}
+
+/* **************************************************
+
+  CONCERT-DETAIL
+
+************************************************** */
+
+.section-concerts-detail {
+
+}
+
+.section-concerts-detail .concerts-detail-cover {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.section-concerts-detail .concerts-detail-infos {
+    margin-bottom: 25px;
+}
+
+.section-concerts-detail .concerts-detail-infos .concerts-detail-title {
+    margin-bottom: 15px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1abc9c;
+    text-transform: uppercase;
+}
+
+.section-concerts-detail .concerts-detail-infos .concerts-detail-descr {
+    margin-bottom: 25px;
+    line-height: 25px;
+    font-size: 20px;
+    color: #333;
+}
+
+.section-concerts-detail .concerts-detail-infos .concerts-detail-date, .section-concerts-detail .concerts-detail-infos .concerts-detail-place {
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #8a8a8a;
+}
+
+.section-concerts-detail .concerts-detail-infos .concerts-detail-date {
+    text-transform: capitalize;
+}
+
+.section-concerts-detail .concerts-detail-aside {
+    margin-bottom: 25px;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order {
+    padding: 10px 15px;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order p {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order p span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #1abc9c;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order form {
+
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order form label {
+    display: block;
+    font-size: 14px;
+    color: #8a8a8a;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order form input {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order form input[type=number] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #1abc9c;
+    border: 2px solid #1abc9c;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-order form input[type=submit] {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect {
+
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect p {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect p span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #1abc9c;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect .concerts-connect-item a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect .concerts-connect-item.concerts-connect-signup a {
+    background-color: #2980b9;
+}
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect .concerts-connect-item.concerts-connect-signup a:hover {
+    background-color: #3498db;
+}
+
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect .concerts-connect-item.concerts-connect-login a {
+    background-color: #27ae60;
+}
+.section-concerts-detail .concerts-detail-aside .concerts-detail-connect .concerts-connect-item.concerts-connect-login a:hover {
+    background-color: #2ecc71;
+}
+
+.section-concerts-detail .concerts-detail-map {
+    margin-bottom: 25px;
+}
+
+.section-concerts-detail .concerts-detail-map iframe {
+    height: 400px;
+    width: 100%;
+}
+
+.section-concerts-detail .concerts-detail-disqus{
+
+}
+
+/* **************************************************
+
+  CONCERT-ADD
+
+************************************************** */
+
+.section-concerts-add {
+    margin-top: 100px;
+    padding: 25px 0;
+}
+
+.section-concerts-add .concerts-add-form form {
+    display: block;
+    width: 100%;
+}
+
+.section-concerts-add .concerts-add-form form .concerts-add-form-group {
+    margin-bottom: 20px;
+}
+
+.section-concerts-add .concerts-add-form form .concerts-add-form-group label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.section-concerts-add .concerts-add-form form .concerts-add-form-group input {
+    display: block;
+    height: 40px;
+    line-height:40px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 20px;
+    color: #111;
+    border: 1px solid #222;
+}
+
+.section-concerts-add .concerts-add-form form .concerts-add-form-group.concerts-add-form-submit input {
+    margin-top: 15px;
+    color: #fff;
+    background-color: #2980b9;
+    border: none;
+    transition: all 0.25s ease-in-out;
+}
+.section-concerts-add .concerts-add-form form .concerts-add-form-group.concerts-add-form-submit input:hover {
+    background-color: #3498db;
+}
+
+.section-concerts-add .concerts-add-form form .concerts-add-form-group input[type=number]::-webkit-inner-spin-button,
+.section-concerts-add .concerts-add-form form .concerts-add-form-group input[type=number]::-webkit-outer-spin-button,
+.section-concerts-add .concerts-add-form form .concerts-add-form-group input[type=date]::-webkit-inner-spin-button,
+.section-concerts-add .concerts-add-form form .concerts-add-form-group input[type=date]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* **************************************************
+
+  USER-ADD
+
+************************************************** */
+
+.section-users-form {
+    margin-top: 100px;
+    padding: 25px 0;
+}
+
+.section-users-form h2 {
+    margin-bottom: 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    color: #111;
+}
+
+.section-users-form .users-form form {
+    display: block;
+    width: 100%;
+}
+
+.section-users-form .users-form form .users-form-group {
+    margin-bottom: 20px;
+}
+
+.section-users-form .users-form form .users-form-group label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.section-users-form .users-form form .users-form-group input, .section-users-form .users-form form .users-form-group select {
+    display: block;
+    height: 40px;
+    line-height:40px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 20px;
+    color: #111;
+    background-color: #fff;
+    border: 1px solid #222;
+}
+
+.section-users-form .users-form form .users-form-group.users-form-submit input {
+    margin-top: 40px;
+    color: #fff;
+    background-color: #2980b9;
+    border: none;
+    transition: all 0.25s ease-in-out;
+}
+.section-users-form .users-form form .users-form-group.users-form-submit input:hover {
+    background-color: #3498db;
+}
