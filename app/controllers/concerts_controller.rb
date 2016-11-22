@@ -60,7 +60,7 @@ class ConcertsController < ApplicationController
   def destroy
     @concert = Concert.find(params[:id])
     @concert.destroy
-    redirect_back_or_to(home_url, success: "Le concert a bien été supprimé.")
+    redirect_back_or_to(root_url, success: "Le concert a bien été supprimé.")
   end
 
   def edit

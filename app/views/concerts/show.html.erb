@@ -5,6 +5,8 @@
       <div class="concerts-detail-infos col-xs-12 col-sm-8">
         <% if current_user && current_user.admin %>
             <%= link_to "modifier", edit_concert_path(@concert) %>
+            <span> / </span>
+            <%= link_to "supprimer", concert_path(@concert), method: :delete %>
         <% end %>
         <h2 class="concerts-detail-title"><%= @concert.title %></h2>
         <p class="concerts-detail-descr"><%=  @concert.description %></p>

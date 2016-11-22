@@ -29,9 +29,11 @@
               <li class="header-nav-item header-signup"><%= link_to "S'inscrire", signup_path %></li>
               <li class="header-nav-item header-login"><%= link_to "Se connecter", login_path %></li>
           <% end %>
+          <li class="header-nav-item"><input type="text" name="search" id="search" class="header-search" placeholder="Rechercher..."></li>
         </ul>
       </div>
     </header>
+
     <div class="app-flashes">
       <% flash.each do |name, msg| %>
           <div class="app-flash app-flash-<%= name %>">
