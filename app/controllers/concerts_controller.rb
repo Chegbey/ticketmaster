@@ -32,7 +32,9 @@ class ConcertsController < ApplicationController
       @concert.save
 
       if @user.save
-        redirect_back_or_to(root_url, success: "Vous avez bien commandé #{@nb_tickets} tickets.")
+        redirect_back_or_to(root_url, success: "Vous avez bien commandé #{@nb_tickets} tickets. Un email vous a été envoyé")
+        UserMailer.send_email(@user,@nb_tickets).deliver
+
       end
     else
       redirect_back_or_to(:back, error: "Il ne reste pas assez de ticket.")
