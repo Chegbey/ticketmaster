@@ -13,6 +13,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @tickets = current_user.tickets
+  end
+
   private
 
   def user_params
