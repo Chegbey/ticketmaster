@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   get "/concerts/new", to: "concerts#new"
   get "/concerts/:id", to: "concerts#show"
-
+  get "/concerts/:id/edit", to: "concerts#edit"
 
   post "/concerts/:id", to: "concerts#order", as: "concert_id"
 
+  put "/concerts/:id", to: "concerts#update"
 
 
 

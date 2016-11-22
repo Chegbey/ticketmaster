@@ -37,6 +37,8 @@ class ConcertsController < ApplicationController
     else
       redirect_back_or_to(:back, error: "Il ne reste pas assez de ticket.")
     end
+
+
   end
 
   def new
@@ -60,7 +62,17 @@ class ConcertsController < ApplicationController
     @concert.destroy
     redirect_back_or_to(home_url, success: "Le concert a bien été supprimé.")
   end
-  
+
+  def edit
+    @concert = Concert.find(params[:id])
+  end
+
+  def update
+    @concert = Concert.find(params[:id])
+    @concert.update_attributes(concert_params)
+    redirect_to action: :order
+  end
+
   private
 
   def concert_params
