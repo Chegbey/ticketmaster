@@ -3,7 +3,7 @@ class ConcertsController < ApplicationController
   def index
     @concerts = Concert.all
     if current_user
-      @concerts_fav = Concert.where(music_type: current_user.fav).limit(3).order(:date)
+      @concerts_fav = Concert.where(music_type: current_user.fav).order(:date).limit(3)
     end
    end
 

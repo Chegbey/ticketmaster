@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/concerts/:id", to: "concerts#show"
   get "/concerts/:id/edit", to: "concerts#edit"
 
+  get "/search", to: "search#live_search"
+
   post "/concerts/:id", to: "concerts#order", as: "concert_id"
 
   put "/concerts/:id", to: "concerts#update"

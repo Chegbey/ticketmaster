@@ -48,7 +48,7 @@ a:hover {
     height: 80px;
     line-height: 80px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.90);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .header .header-title {
@@ -80,6 +80,7 @@ a:hover {
 }
 
 .header .header-nav .header-nav-item {
+    position: relative;
     display: inline-block;
     font-size: 0;
     vertical-align: top;
@@ -129,6 +130,37 @@ a:hover {
     font-weight: 300;
     font-size: 20px;
     color: #222;
+}
+
+.header .header-search-result {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 400px;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #333;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.7);
+    transform-origin: top right;
+    transition: all 0.25s ease-in-out;
+}
+
+.header .header-search-result.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(15px) scale(1);
+}
+
+.header .header-search-result [data-close] {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    height: 25px;
+    width: 25px;
 }
 
 /* **************************************************
@@ -193,11 +225,16 @@ a:hover {
 }
 
 .section-fav-disconnect p {
-
+    line-height: 25px;
+    font-size: 20px;
+    color: #333;
 }
 
 .section-fav-disconnect p span {
-
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #1abc9c;
 }
 
 /* **************************************************

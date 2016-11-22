@@ -3,8 +3,10 @@ class SearchController < ApplicationController
   end
 
   def live_search
-    @searchphrase - "%" + params[:query] + "%"
-    @results = Concert.where("title LIKE :query", query: "#{@searchphrase}%")
-    render(:layout => false)
+    search = "%" + params[:search] + "%"
+
+    @results = Concert.where("lower(title) LIKE ?", search.downcase).order(:title).limit(5)
+
+    render :json => @results
   end
 end

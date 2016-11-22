@@ -29,10 +29,18 @@
               <li class="header-nav-item header-signup"><%= link_to "S'inscrire", signup_path %></li>
               <li class="header-nav-item header-login"><%= link_to "Se connecter", login_path %></li>
           <% end %>
-          <li class="header-nav-item"><input type="text" name="search" id="search" class="header-search" placeholder="Rechercher..."></li>
+          <li class="header-nav-item">
+            <form><input type="text" name="search" id="search" class="header-search" placeholder="Rechercher..."></form>
+            <div class="header-search-result">
+              <button data-close>X</button>
+              <!-- search results -->
+            </div>
+          </li>
         </ul>
       </div>
     </header>
+
+    <div class="debug"></div>
 
     <div class="app-flashes">
       <% flash.each do |name, msg| %>
